@@ -1,0 +1,91 @@
+{
+  a!cardLayout(
+    contents: {
+      a!cardLayout(
+        contents: {
+          a!richTextDisplayField(
+            labelPosition: "COLLAPSED",
+            value: {
+              a!richTextItem(
+                text: { "Customers" },
+                size: "MEDIUM_PLUS",
+                style: { "UNDERLINE", "STRONG" }
+              )
+            }
+          )
+        },
+        height: "AUTO",
+        style: "INFO",
+        marginBelow: "STANDARD",
+        decorativeBarPosition: "BOTTOM",
+        decorativeBarColor: "#1d659c"
+      ),
+      a!gridField(
+        data: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer',
+        columns: {
+          a!gridColumn(
+            label: "Cusid",
+            sortField: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{11459911-4a75-46da-bea2-22b276535e1d}cusid',
+            value: fv!row['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{11459911-4a75-46da-bea2-22b276535e1d}cusid'],
+            align: "END"
+          ),
+          a!gridColumn(
+            label: "Cus Name",
+            sortField: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{df6592ca-a29a-47f3-834a-dfe632da2dcc}cusName',
+            value: a!linkField(
+              links: {
+                a!recordLink(
+                  label: fv!row['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{df6592ca-a29a-47f3-834a-dfe632da2dcc}cusName'],
+                  recordType: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer',
+                  identifier: fv!identifier
+                )
+              }
+            )
+          ),
+          a!gridColumn(
+            label: "Cus Email",
+            sortField: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{524cd1b7-ab49-4ac3-8c03-dcc6f6c9adb6}cusEmail',
+            value: fv!row['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{524cd1b7-ab49-4ac3-8c03-dcc6f6c9adb6}cusEmail']
+          ),
+          a!gridColumn(
+            label: "Cus Mob",
+            sortField: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{ac250bc1-06c3-4497-b8ac-7de00c48b2a1}cusMob',
+            value: fv!row['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{ac250bc1-06c3-4497-b8ac-7de00c48b2a1}cusMob']
+          ),
+          a!gridColumn(
+            label: "Update",
+            value: a!recordActionField(
+              actions: a!recordActionItem(
+                action: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.actions.{c9198e51-f90d-473d-953c-518008a2cca1}updateCustomer',
+                identifier: fv!identifier
+              )
+
+            )
+          ),
+          a!gridColumn(
+            label: "Delete",
+            value: a!recordActionField(
+              actions: a!recordActionItem(
+                action: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.actions.{df914ad5-2c73-4a82-a933-12677cbdf6cd}deleteCustomer',
+                identifier: fv!identifier
+              )
+
+            )
+          )
+        },
+        validations: {},
+        refreshAfter: "RECORD_ACTION",
+        showSearchBox: true,
+        showRefreshButton: true,
+        recordActions: a!recordActionItem(
+          action: 'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.actions.{56731481-3fd8-40f5-8bad-3ce9f2a68915}newCustomer'
+        )
+      )
+    },
+    height: "AUTO",
+    style: "INFO",
+    marginBelow: "STANDARD",
+    decorativeBarPosition: "START",
+    decorativeBarColor: "#1d659c"
+  )
+}
