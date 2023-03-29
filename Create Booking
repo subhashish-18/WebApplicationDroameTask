@@ -1,0 +1,94 @@
+a!localVariables(
+  local!locid: property(
+    property(rule!DA_qe_location(), "data", {}),
+    "locid",
+    ""
+  ),
+  local!locname: property(
+    property(rule!DA_qe_location(), "data", {}),
+    "locName",
+    ""
+  ),
+  local!customer: rule!DA_qe_customer().data,
+  local!dsid: property(
+    property(rule!DA_qe_ds(), "data", {}),
+    "dsid",
+    ""
+  ),
+  local!dsname: property(
+    property(rule!DA_qe_ds(), "data", {}),
+    "dsName",
+    ""
+  ),
+  a!formLayout(
+    label: "Create booking",
+    contents: {
+      a!columnsLayout(
+        columns: {
+          a!columnLayout(
+            contents: {
+              a!dropdownField(
+                label: "Location",
+                labelPosition: "ABOVE",
+                placeholder: "Select a Location",
+                choiceLabels: local!locname,
+                choiceValues: local!locid,
+                value: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{dfa2f1ca-d3fd-4f86-91bc-ce6eb4e617af}locid'],
+                saveInto: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{dfa2f1ca-d3fd-4f86-91bc-ce6eb4e617af}locid']
+              ),
+              a!dropdownField(
+                label: "Droneshot",
+                labelPosition: "ABOVE",
+                placeholder: "Select a Droneshot",
+                choiceLabels: local!dsname,
+                choiceValues: local!dsid,
+                value: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{a5aaa957-7227-4a2e-a7b1-ee8e73aad375}droneid'],
+                saveInto: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{a5aaa957-7227-4a2e-a7b1-ee8e73aad375}droneid']
+              )
+            }
+          ),
+          a!columnLayout(
+            contents: {
+              a!dropdownField(
+                label: "Customer",
+                labelPosition: "ABOVE",
+                placeholder: "Select a Customer",
+                choiceLabels: property(local!customer,'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{df6592ca-a29a-47f3-834a-dfe632da2dcc}cusName',""),
+                choiceValues: property(local!customer,'recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{11459911-4a75-46da-bea2-22b276535e1d}cusid',""),
+                value: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c60d88a4-ded8-4f20-9605-7e2695d6490e}cusid'],
+                saveInto: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c60d88a4-ded8-4f20-9605-7e2695d6490e}cusid']
+              ),
+              a!dateTimeField(
+                label: "Create Date Time",
+                labelPosition: "ABOVE",
+                value: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime'],
+                saveInto: ri!record['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime'],
+                required: false
+              )
+            }
+          )
+        }
+      )
+    },
+    buttons: a!buttonLayout(
+      primaryButtons: {
+        a!buttonWidget(
+          label: "Submit",
+          submit: true,
+          style: "PRIMARY",
+          validate: true
+        )
+      },
+      secondaryButtons: {
+        a!buttonWidget(
+          label: "Cancel",
+          value: true,
+          saveInto: ri!cancel,
+          submit: true,
+          style: "NORMAL",
+          validate: false
+        )
+      }
+    )
+  )
+)
