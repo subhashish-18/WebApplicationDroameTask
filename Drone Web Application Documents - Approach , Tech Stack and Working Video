@@ -1,6 +1,6 @@
 My name is Subhashish Behera. I have chosen task 2 to create a Web Application which allows the operator to manage the customer and booking , and also created a database in the backend to store the data. 
 
-Working Video of the task -  https://drive.google.com/file/d/1x5bHbPRgmPoAmYP53I6zDusHpblyh7U-/view?usp=sharing
+Working Video of the task -  
 
 
 Tech Stack Used - Appian which has its own cloud database (MariaDB) and frontend (interface, site and portal)
