@@ -1,0 +1,93 @@
+{
+  a!cardLayout(
+    contents: {
+      a!cardLayout(
+        contents: {
+          a!richTextDisplayField(
+            labelPosition: "COLLAPSED",
+            value: {
+              a!richTextItem(
+                text: { "Booking" },
+                size: "MEDIUM_PLUS",
+                style: { "UNDERLINE", "STRONG" }
+              )
+            }
+          )
+        },
+        height: "AUTO",
+        style: "INFO",
+        marginBelow: "STANDARD",
+        decorativeBarPosition: "BOTTOM",
+        decorativeBarColor: "#1d659c"
+      ),
+      a!gridField(
+        data: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking',
+        columns: {
+          a!gridColumn(
+            label: "Booking id",
+            sortField: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c1f9977d-493c-4012-ae2b-7cf75ec6d2eb}bookid',
+            value: fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c1f9977d-493c-4012-ae2b-7cf75ec6d2eb}bookid'],
+            align: "END"
+          ),
+          a!gridColumn(
+            label: "Customer id",
+            sortField: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c60d88a4-ded8-4f20-9605-7e2695d6490e}cusid',
+            value: fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{c60d88a4-ded8-4f20-9605-7e2695d6490e}cusid']
+          ),
+          a!gridColumn(
+            label: "Drone Shot id",
+            sortField: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{a5aaa957-7227-4a2e-a7b1-ee8e73aad375}droneid',
+            value: fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{a5aaa957-7227-4a2e-a7b1-ee8e73aad375}droneid']
+          ),
+          a!gridColumn(
+            label: "Location id",
+            sortField: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{dfa2f1ca-d3fd-4f86-91bc-ce6eb4e617af}locid',
+            value: fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{dfa2f1ca-d3fd-4f86-91bc-ce6eb4e617af}locid']
+          ),
+          a!gridColumn(
+            label: "Create Date Time",
+            sortField: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime',
+            value: if(
+              isnull(fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime']),
+              fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime'],
+              datetext(fv!row['recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.fields.{f9df1340-b6e8-4cee-a7ee-b7facd888d62}createDateTime'], "default")
+            ),
+            align: "END"
+          ),
+          a!gridColumn(
+            label: "Update",
+            value: a!recordActionField(
+              actions: a!recordActionItem(
+                action: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.actions.{7eade665-78f0-48cf-b4ea-9279d8180838}updateBooking',
+                identifier: fv!identifier
+              )
+
+            )
+          ),
+          a!gridColumn(
+            label: "Delete",
+            value: a!recordActionField(
+              actions: a!recordActionItem(
+                action: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.actions.{6d9cf3dc-9097-4d3d-b17f-a0b6f1bcf1bd}deleteBooking',
+                identifier: fv!identifier
+              )
+
+            )
+          )
+        },
+        validations: {},
+        refreshAfter: "RECORD_ACTION",
+        showSearchBox: true,
+        showRefreshButton: true,
+        recordActions: a!recordActionItem(
+          action: 'recordType!{fa6e25b6-5d7e-4455-bd7d-5c61ac692075}DA booking.actions.{3bb46b13-c17c-463b-af5f-00375a2baac0}newBooking'
+        )
+      )
+    },
+    height: "AUTO",
+    style: "INFO",
+    marginBelow: "STANDARD",
+    decorativeBarPosition: "START",
+    decorativeBarColor: "#1d659c"
+  )
+}
