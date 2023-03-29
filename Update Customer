@@ -1,0 +1,61 @@
+a!formLayout(
+  label: "Update Customer",
+  contents: {
+    a!columnsLayout(
+      columns: {
+        a!columnLayout(
+          contents: {
+            a!textField(
+              label: "Cus Name",
+              labelPosition: "ABOVE",
+              required: false,
+              value: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{df6592ca-a29a-47f3-834a-dfe632da2dcc}cusName'],
+              saveInto: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{df6592ca-a29a-47f3-834a-dfe632da2dcc}cusName'],
+              characterLimit: 255
+            ),
+            a!textField(
+              label: "Cus Mob",
+              labelPosition: "ABOVE",
+              required: false,
+              value: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{ac250bc1-06c3-4497-b8ac-7de00c48b2a1}cusMob'],
+              saveInto: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{ac250bc1-06c3-4497-b8ac-7de00c48b2a1}cusMob'],
+              characterLimit: 255
+            )
+          }
+        ),
+        a!columnLayout(
+          contents: {
+            a!textField(
+              label: "Cus Email",
+              labelPosition: "ABOVE",
+              required: false,
+              value: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{524cd1b7-ab49-4ac3-8c03-dcc6f6c9adb6}cusEmail'],
+              saveInto: ri!record['recordType!{ab755b17-de39-41c7-aac5-81858c4b6173}DA Customer.fields.{524cd1b7-ab49-4ac3-8c03-dcc6f6c9adb6}cusEmail'],
+              characterLimit: 255
+            )
+          }
+        )
+      }
+    )
+  },
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidget(
+        label: "Submit",
+        submit: true,
+        validate: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {
+      a!buttonWidget(
+        label: "Cancel",
+        value: true,
+        saveInto: ri!cancel,
+        submit: true,
+        style: "NORMAL",
+        validate: false
+      )
+    }
+  )
+)
