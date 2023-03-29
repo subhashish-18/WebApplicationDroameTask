@@ -1,0 +1,29 @@
+a!formLayout(
+  label: "Delete Customer",
+  contents: {
+    a!paragraphField(
+      labelPosition: "COLLAPSED",
+      readOnly: true,
+      value: "Submitting this form will delete your record. The data will no longer exist."
+    )
+  },
+  buttons: a!buttonLayout(
+    primaryButtons: {
+      a!buttonWidget(
+        label: "Delete",
+        submit: true,
+        style: "DESTRUCTIVE"
+      )
+    },
+    secondaryButtons: {
+      a!buttonWidget(
+        label: "Cancel",
+        style: "NORMAL",
+        value: true,
+        submit: true,
+        saveInto: ri!cancel,
+        validate: false
+      )
+    }
+  )
+)
